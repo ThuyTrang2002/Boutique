@@ -1,0 +1,113 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+} */
+
+.scene {
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    perspective: 400px;
+}
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform: translateZ(-100px) rotateX(-10deg) translateY(50px);
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    animation: rotate 10s linear infinite;
+}
+@keyframes rotate {
+    0% {
+        transform: translateZ(-100px) rotateX(-10deg) translateY(50px) rotateY(360deg); 
+    } 100% {
+        transform: translateZ(-100px) rotateX(-10deg) translateY(50px) rotateY(0deg);
+    }
+}
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    transition:  all .5s;
+}
+.front {
+    background: url(/images/giang3.jpg) center no-repeat;
+    background-size: cover;
+    transform: rotateY(0deg) translateZ(100px);
+    animation: front 10s linear infinite;
+}
+@keyframes front {
+    0%, 100% {
+        filter: opacity(.01);
+    } 25%, 75% {
+        filter: opacity(.5);
+    } 50% {
+        filter: opacity(1);
+    }
+}
+.back {
+    background: url(../img/trang1.jpg) center no-repeat;
+    background-size: cover;
+    transform: rotateY(180deg) translateZ(100px);
+    animation: back 10s linear infinite;
+}
+@keyframes back {
+    0%, 100% {
+        filter: opacity(1);
+    } 25%, 75% {
+        filter: opacity(.5);
+    } 50% {
+        filter: opacity(.01);
+    }
+}
+.left {
+    background: url(../img/giang2.jpg) center no-repeat;
+    background-size: cover;
+    transform: rotateY(-90deg) translateZ(100px);
+    animation: left 10s linear infinite;
+}
+@keyframes left {
+    0%, 100% {
+        filter: opacity(.5);
+    } 25% {
+        filter: opacity(1);
+    } 50% {
+        filter: opacity(.5);
+    } 75% {
+        filter: opacity(0.01);
+    }
+}
+.right {
+    background: url(../img/trang2.jpg) center no-repeat;
+    background-size: cover;
+    transform: rotateY(90deg) translateZ(100px);
+    animation: right 10s linear infinite;
+}
+@keyframes right {
+    0%, 100% {
+        filter: opacity(.5);
+    } 25% {
+        filter: opacity(.01);
+    } 50% {
+        filter: opacity(.5);
+    } 75% {
+        filter: opacity(1);
+    }
+}
+.bottom {
+    background: url(../img/giang1.jpg) center no-repeat;
+    background-size: cover;
+    transform: rotateX(-90deg) translateZ(100px);
+}
+.top {
+    background: url(../img/trang3.jpg) center no-repeat;
+    background-size: cover;
+    transform: rotateX(90deg) translateZ(100px);
+}
+
